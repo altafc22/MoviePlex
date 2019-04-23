@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_content"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorWhite"
+    tools:context=".MovieDetailsActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/backdrop_height"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorWhite"
+            app:expandedTitleTextAppearance="@android:color/transparent">
+
+                <VideoView
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:id="@+id/video_view"
+                    android:visibility="invisible"/>
+            
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/backdrop_height"
+                    android:fitsSystemWindows="true"
+                    android:id="@+id/thumbnail_image_header"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:title="@string/movie_name"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:background="@color/colorWhite"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".MovieDetailsActivity"
+            tools:showIn="@layout/activity_movie_details">
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+
+                    <!--
+
+                    this.posterPath = posterPath;
+                        this.adult = adult;
+                        this.overview = overview;
+                        this.releaseDate = releaseDate;
+                        this.genereIds = genereIds;
+                        this.id = id;
+                        this.originalTitle = originalTitle;
+                        this.title = title;
+                        this.backdropPath = backdropPath;
+                        this.popularity = popularity;
+                        this.voteCount = voteCount;
+                        this.video = video;
+                        this.voteAverage = voteAverage;*/
+                    -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_ui_text"
+                        android:textSize="20sp"
+                        android:layout_toLeftOf="@+id/vote_layout"
+                        android:text="Iron Man"
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/movie_title"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:fontFamily="@font/segoeui_bold"/>
+                        <!--android:ellipsize="marquee" -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_ui_text"
+                        android:layout_alignParentLeft="true"
+                        android:text="26/12/2019"
+                        android:textSize="16sp"
+                        android:id="@+id/release_date"
+                        android:layout_below="@+id/movie_title"
+                        android:fontFamily="@font/segoeui"/>
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:gravity="center"
+                       android:id="@+id/vote_layout"
+                       android:layout_alignParentRight="true"
+                       android:orientation="horizontal">
+
+                       <ImageView
+                           android:layout_width="20dp"
+                           android:layout_height="20dp"
+                           android:layout_marginRight="2dp"
+                           android:layout_toLeftOf="@id/vote_average"
+                           android:src="@drawable/ic_favorite_primary_24dp"/>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/color_ui_text"
+                           android:textSize="18sp"
+                           android:text="87.30%"
+                           android:id="@+id/vote_average"
+                           android:fontFamily="@font/segoeui_bold"/>
+                   </LinearLayout>
+
+                    <TextView
+                        android:layout_below="@+id/vote_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_ui_text"
+                        android:layout_alignParentRight="true"
+                        android:text="25870 votes"
+                        android:textSize="16sp"
+                        android:id="@+id/total_vote"
+                        android:fontFamily="@font/segoeui"/>
+
+                    <RelativeLayout
+                        android:layout_below="@+id/release_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:id="@+id/gen_layout">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/color_ui_text"
+                            android:text="Drama, Comedy, Action"
+                            android:id="@+id/genre"
+                            android:layout_toLeftOf="@+id/book_btn"
+                            android:layout_marginRight="2dp"
+                            android:fontFamily="@font/segoeui"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:background="@drawable/book_rounded_button"
+                            android:drawableLeft="@drawable/ic_ticket_white"
+                            android:text="Book"
+                            android:id="@+id/book_btn"
+                            android:onClick="initiateBooking"
+                            android:textColor="@color/colorWhite"
+                            android:fontFamily="@font/segoeui_bold"
+                            android:layout_alignParentRight="true"/>
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:layout_below="@+id/gen_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_ui_text"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/overview"
+                        android:id="@+id/overview_text"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/segoeui_bold"/>
+
+                    <com.codesgood.views.JustifiedTextView
+                        android:layout_below="@+id/overview_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_ui_text"
+                        android:layout_alignParentLeft="true"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        android:id="@+id/overview"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/segoeui"/>
+
+
+                </RelativeLayout>
+
+
+            </ScrollView>
+
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

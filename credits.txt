@@ -1,0 +1,72 @@
+Book My Movie
+
+credits
+Background vector created by frimufilms - www.freepik.com
+Icon vector created by ibrandify - www.freepik.com
+
+
+https://api.themoviedb.org/3/discover/movie?api_key=###&region=IN&release_date.gte=2017-03-01&release_date.lte=2017-03-21
+
+https://developers.google.com/places/web-service/search#PlaceSearchRequests
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=movie_theater&keyword=cruise&key=YOUR_API_KEY
+
+
+https://api.themoviedb.org/3/discover/movie?api_key=YOUR_KEY_HERE&region=IN&with_original_language=hi&release_date.gte=2018-02-01&release_date.lte=2018-03-21
+
+
+poster url : http://image.tmdb.org/t/p/w500
+backdrop url : http://image.tmdb.org/t/p/w780
+
+fb movieplex = ga0RGNYHvNM5d0SLGQfpQWAPGJ8=
+
+
+tv_user_name
+profile_pic
+tv_id
+tv_email
+logout_button
+
+
+
+
+
+Your API credentials
+Thank you for requesting an API key from MovieGlu for the purpose of evaluating our API's. Our API's are available in over 60 countries worldwide.
+
+We recommend that you begin by reading our Quick Start Guide
+
+IMPORTANT: Some of the fields below must be passed in the HTTP header.
+
+If you like what you see, please contact us to discuss our pricing structure which varies based on location and usage. Our email address is support@movieglu.com.
+
+
+
+API Endpoint :	https://api-gate2.movieglu.com/
+Username :	DEMO_0
+x-api-key :	aO3oSbbp0r19qcdrV3Txc8BZHNGyiYTR1XW85Udd
+Territory :	IN
+Authorization :	Basic REVNT18wOlhldmsxdzRFbVRJQQ=
+Request limit :	75
+
+
+Happy coding
+
+The MovieGlu team
+
+LIVE
+
+
+String path="http://www.ted.com/talks/download/video/8584/talk/761";
+    String path1="http://commonsware.com/misc/test2.3gp";
+
+    Uri uri=Uri.parse(path1);
+
+    VideoView video=(VideoView)findViewById(R.id.VideoView01);
+    video.setVideoURI(uri);
+    video.start();
+
+https://api.themoviedb.org/3/movie/299537/videos?api_key=a1cbe7cb54feb5fb5cca45a3a0592d13
+
+
+
+implementation 'com.github.rey5137:material:1.2.5'

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:adjustViewBounds="true">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:id="@+id/movie_card_view"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="@dimen/small_card_radius"
+        app:cardPreventCornerOverlap="false"
+        android:layout_weight="1"
+        android:layout_margin="3dp"
+        android:outlineAmbientShadowColor="@color/colorPrimary"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
+        <!--app:cardPreventCornerOverlap="false"-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/thumbnail"
+                android:src="@drawable/iron_man_three"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/thumbnail"
+                android:paddingRight="@dimen/movie_title_padding"
+                android:textColor="@color/color_ui_text"
+                android:textSize="@dimen/small_card_title_size"
+                android:text="Iron Man 3"
+                android:id="@+id/title"
+                android:maxLines="1"
+                android:layout_margin="@dimen/small_card_title_left_margin"
+                android:singleLine="true"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Action"
+                android:id="@+id/genre"
+                android:layout_margin="@dimen/small_card_title_left_margin"
+                android:textColor="@color/color_ui_subtext"
+                android:textSize="@dimen/small_card_subtitle_size"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:gravity="start"
+                android:paddingRight="@dimen/movie_title_padding"
+                android:layout_below="@+id/title"
+                android:layout_alignParentLeft="true"
+                android:singleLine="true"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20/12/2019"
+                android:id="@+id/releasedate"
+                android:layout_margin="@dimen/small_card_title_left_margin"
+                android:textColor="@color/color_ui_subtext"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/small_card_subtitle_size"
+                android:ellipsize="end"
+                android:layout_below="@+id/title"
+                android:maxLines="1"
+                android:singleLine="true"/>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

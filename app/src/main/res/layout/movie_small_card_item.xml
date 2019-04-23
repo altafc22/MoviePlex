@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/small_card_width"
+    android:layout_height="@dimen/small_card_height"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardPreventCornerOverlap="false"
+    android:id="@+id/small_card"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    app:cardCornerRadius="@dimen/small_card_radius"
+    app:cardElevation="3dp"
+    android:layout_margin="@dimen/small_card_margin"
+    android:background="@drawable/small_card_ui"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="98dp"
+            android:layout_height="104dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitXY"
+            android:src="@drawable/iron_man_three"
+            android:id="@+id/thumbnail" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/small_card_title_left_margin"
+            android:layout_marginTop="@dimen/small_card_title_top_margin"
+            android:layout_marginRight="@dimen/small_card_title_left_margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Iron Man"
+            android:textColor="@color/color_ui_text"
+            android:textSize="@dimen/small_card_title_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Action"
+            android:id="@+id/genre"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/color_ui_subtext"
+            android:textSize="@dimen/small_card_subtitle_size"
+            android:layout_marginTop="@dimen/small_card_subtitle_top_margin"
+            android:layout_marginLeft="@dimen/small_card_subtitle_left_margin"
+            android:layout_marginRight="@dimen/small_card_subtitle_left_margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20/12/2019"
+            android:id="@+id/releasedate"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/color_ui_subtext"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/small_card_subtitle_size"
+            android:layout_marginTop="@dimen/small_card_subtitle_top_margin"
+            android:layout_marginLeft="@dimen/small_card_subtitle_left_margin"
+            android:layout_marginRight="@dimen/small_card_subtitle_left_margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/splash_layout"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".SplashActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_vector">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            app:lottie_loop="true"
+            app:lottie_fileName="movie_loading.json"
+            android:background="#00FFFFFF"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_150sdp"
+            app:lottie_autoPlay="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:fontFamily="@font/segoeui_bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/app_title"/>
+
+        <!--
+            LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
+            animationView.setAnimation("hello-world.json");
+            animationView.loop(true);
+            animationView.playAnimation();
+        -->
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

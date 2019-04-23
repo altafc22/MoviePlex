@@ -1,0 +1,162 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_one"
+        tools:context=".ItemOneFragment"
+        android:background="@color/colorWhite">
+
+        <!--<include layout="@layout/content_one"/>-->
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/trailer_recycler_view"
+                    android:layout_height="wrap_content"/>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/new_released"
+                        android:textColor="@color/color_ui_text"
+                        android:fontFamily="@font/segoeui"
+                        android:layout_marginLeft="@dimen/margin_recycler_heading"
+                        android:layout_marginTop="@dimen/margin_recycler_heading"
+                        android:textSize="@dimen/heading_recycler_view"
+                        android:layout_alignParentLeft="true"/>
+
+                    <Button
+                        android:id="@+id/btn_sm_released"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="@dimen/margin_recycler_heading"
+                        android:layout_marginRight="@dimen/margin_recycler_heading"
+                        android:layout_marginBottom="3dp"
+                        android:background="@drawable/show_more_button"
+                        android:elevation="3dp"
+                        android:text="More"
+                        android:fontFamily="@font/segoeui"
+                        android:textSize="10sp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+
+
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp">
+
+                    <ProgressBar
+                        android:id="@+id/new_release_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:id="@+id/released_recycler_view"
+                        android:layout_gravity="center"
+                        android:layout_height="match_parent"/>
+
+
+
+                </FrameLayout>
+
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/upcoming"
+                        android:textColor="@color/color_ui_text"
+                        android:fontFamily="@font/segoeui"
+                        android:layout_marginLeft="@dimen/margin_recycler_heading"
+                        android:layout_marginTop="@dimen/margin_recycler_heading"
+                        android:textSize="@dimen/heading_recycler_view"/>
+
+                    <Button
+                        android:id="@+id/btn_sm_upcoming"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="@dimen/margin_recycler_heading"
+                        android:layout_marginRight="@dimen/margin_recycler_heading"
+                        android:layout_marginBottom="3dp"
+                        android:background="@drawable/show_more_button"
+                        android:elevation="3dp"
+                        android:text="More"
+                        android:fontFamily="@font/segoeui"
+                        android:textSize="10sp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp">
+
+                    <ProgressBar
+                        android:id="@+id/upcoming_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"/>
+
+
+                    <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/upcoming_recycler_view"
+                    android:layout_gravity="center"
+                    android:layout_height="160dp"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+
+        </ScrollView>
+
+
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>
+
+

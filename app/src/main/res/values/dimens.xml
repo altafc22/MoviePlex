@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="app_title">20dp</dimen>
+    <dimen name="app_subtitle">18dp</dimen>
+    <dimen name="app_button_text">15dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="movie_title_padding">10dp</dimen>
+    <dimen name="movie_title">15dp</dimen>
+    <dimen name="movie_cover_height">200dp</dimen>
+    <dimen name="card_movie_padding">10dp</dimen>
+    <dimen name="card_margin">7.5dp</dimen>
+    <dimen name="card_movie_radius">7.5dp</dimen>
+    <dimen name="backdrop_height">350dp</dimen>
+    <dimen name="layout_margin_left">10dp</dimen>
+    <dimen name="layout_margin_top">10dp</dimen>
+    <dimen name="layout_margin_right">10dp</dimen>
+    <dimen name="layout_margin_bottom">10dp</dimen>
+    <dimen name="user_rating_padding">5dp</dimen>
+    <dimen name="user_rating">5dp</dimen>
+    <dimen name="padding_layout">16dp</dimen>
+
+
+    <dimen name="horizontal_recycler_view_height">150dp</dimen>
+    <dimen name="small_card_height">150dp</dimen>
+    <dimen name="small_card_width">98dp</dimen>
+
+
+    <dimen
+        name="design_bottom_navigation_text_size"
+        tools:override="true">10dp</dimen>
+
+    <dimen
+        name="design_bottom_navigation_active_text_size"
+        tools:override="true">10dp</dimen>
+
+    <dimen name="heading_recycler_view">17sp</dimen>
+    <dimen name="margin_recycler_heading">7dp</dimen>
+    <dimen name="small_card_radius">3dp</dimen>
+    <dimen name="small_card_margin">4dp</dimen>
+    <dimen name="margin_small_card_recycler">7dp</dimen>
+
+    <dimen name="small_card_title_size">10sp</dimen>
+    <dimen name="small_card_subtitle_size">9sp</dimen>
+    <dimen name="small_card_title_top_margin">111dp</dimen>
+    <dimen name="small_card_title_left_margin">7dp</dimen>
+    <dimen name="small_card_subtitle_top_margin">131dp</dimen>
+    <dimen name="small_card_subtitle_left_margin">8dp</dimen>
+
+</resources>

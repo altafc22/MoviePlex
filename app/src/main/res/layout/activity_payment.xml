@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".PaymentActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:id="@+id/action_bar_layout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="gotoPreviousActivity"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm &amp; Pay"
+            android:id="@+id/activity_title"
+            android:fontFamily="@font/segoeui"
+            android:textColor="@color/color_ui_text"
+            android:textSize="22sp"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="40dp"
+            android:layout_below="@+id/action_bar_layout"
+            android:layout_above="@+id/bottom_bar_layout"
+            android:elevation="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.vipulasri.ticketview.TicketView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/ticketView"
+                app:ticketOrientation="horizontal"
+                app:ticketScallopRadius="10dp"
+                app:ticketScallopPositionPercent="55"
+                app:ticketShowBorder="false"
+                app:ticketBorderWidth="1dp"
+                app:ticketBorderColor="@color/colorAccent"
+                app:ticketShowDivider="true"
+                app:ticketDividerPadding="10dp"
+                app:ticketDividerType="dash"
+                app:ticketDividerDashGap="4dp"
+                app:ticketDividerDashLength="4dp"
+                app:ticketDividerColor="@color/colorGray"
+                app:ticketCornerType="rounded"
+                app:ticketCornerRadius="10dp"
+                app:ticketElevation="8dp"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.55" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="5dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:fontFamily="@font/segoeui"
+                        android:textSize="18sp"
+                        android:textColor="@color/color_ui_text"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_gray"
+                        android:hint="Name"
+                        android:maxLines="1"
+                        android:maxLength="50"
+                        android:textColor="@color/color_ui_text"
+                        android:padding="6dp"
+                        android:layout_marginBottom="10dp"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mobile"
+                        android:fontFamily="@font/segoeui"
+                        android:textSize="18sp"
+                        android:textColor="@color/color_ui_text"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_gray"
+                        android:maxLines="1"
+                        android:maxLength="13"
+                        android:inputType="phone"
+                        android:hint="Mobile"
+                        android:textColor="@color/color_ui_text"
+                        android:padding="6dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:fontFamily="@font/segoeui"
+                        android:textSize="18sp"
+                        android:textColor="@color/color_ui_text"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_gray"
+                        android:hint="Email"
+                        android:maxLines="1"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/color_ui_text"
+                        android:padding="6dp"
+                        android:layout_marginBottom="10dp"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Booking Details"
+                        android:fontFamily="@font/segoeui_bold"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/color_ui_text"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            app:cardPreventCornerOverlap="false"
+                            android:id="@+id/small_card"
+                            android:layout_alignParentLeft="true"
+                            app:cardCornerRadius="@dimen/small_card_radius"
+                            android:background="@drawable/small_card_ui"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:layout_width="80dp"
+                                    android:layout_height="110dp"
+                                    android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/iron_man_three"
+                                    android:id="@+id/thumbnail" />
+                            </RelativeLayout>
+                        </android.support.v7.widget.CardView>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="5dp">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:fontFamily="@font/segoeui_bold"
+                                android:textSize="18sp"
+                                android:text="Iron Man 3 "
+                                android:textColor="@color/color_ui_text"
+                                android:layout_margin="1dp"
+                                android:id="@+id/movie_title"/>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="6"
+                                    android:fontFamily="@font/segoeui"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/color_ui_text"
+                                    android:layout_margin="5dp"
+                                    android:text="INOX Tapadia"
+                                    android:maxLines="1"
+                                    android:background="@drawable/rounded_chip"
+                                    android:padding="5dp"
+                                    android:gravity="center"
+                                    android:id="@+id/theater_name"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:layout_margin="5dp"
+                                    android:layout_weight="4"
+                                    android:fontFamily="@font/segoeui"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/color_ui_text"
+                                    android:text="12:00 PM"
+                                    android:background="@drawable/rounded_chip"
+                                    android:padding="5dp"
+                                    android:gravity="center"
+                                    android:id="@+id/show_time"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:layout_margin="5dp"
+                                    android:layout_weight="4"
+                                    android:fontFamily="@font/segoeui"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/color_ui_text"
+                                    android:text="12:00 PM"
+                                    android:background="@drawable/rounded_chip"
+                                    android:padding="5dp"
+                                    android:gravity="center"
+                                    android:id="@+id/theater_city"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="6"
+                                    android:fontFamily="@font/segoeui"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/color_ui_text"
+                                    android:layout_margin="5dp"
+                                    android:text="INOX Tapadia"
+                                    android:maxLines="1"
+                                    android:background="@drawable/rounded_chip"
+                                    android:padding="5dp"
+                                    android:gravity="center"
+                                    android:id="@+id/seats"/>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp"
+
+                        android:gravity="center"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Total Amount Payable: "
+                            android:textSize="16sp"
+                            android:layout_weight="4"
+                            android:fontFamily="@font/segoeui"
+                            android:textColor="@color/color_ui_text"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="6"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" ₹. "
+                                android:textSize="18sp"
+                                android:id="@+id/currency_symbol"
+                                android:fontFamily="@font/segoeui_bold"
+                                android:textColor="@color/color_ui_text"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.0"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/segoeui_bold"
+                                android:textColor="@color/color_ui_text"
+                                android:id="@+id/tv_total_amt" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:id="@+id/bottom_bar_layout">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:onClick="gotoPreviousActivity"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:background="@drawable/booking_button_gray">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:fontFamily="@font/segoeui_bold"
+                    android:textColor="@color/color_ui_text"
+                    android:textSize="17sp" />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout> <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:onClick="gotoPayment"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:background="@drawable/button_normal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pay Now"
+                android:fontFamily="@font/segoeui_bold"
+                android:textColor="@color/colorWhite"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

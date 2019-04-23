@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FD2E2E</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#FD2E2E</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#9B9B9B</color>
+    <color name="colorTransparent">#00FFFFFF</color>
+    <color name="color_button_shadow">#9AFD2E2E</color>
+
+    <color name="color_movie_title">#FD2E2E</color>
+
+    <color name="colorDarkPrimary">#EC2121</color>
+    <color name="colorFbPrimary">#3C5A99</color>
+    <color name="colorFbPrimaryDark">#2C416D</color>
+
+    <color name="colorBlack">#000000</color>
+
+    <color name="color_bg">#FCFCFC</color>
+
+
+    <color name="color_red_icon">#F44336</color>
+    <color name="color_golden_icon">#FFB300</color>
+    <color name="color_blue_icon">#3F51B5</color>
+    <color name="color_ui_text">#24253D</color>
+    <color name="color_ui_subtext">#ff9092a5</color>
+
+    <color name="background">#EFEFEF</color>
+    <color name="placeholder_grey">#AAADC4</color>
+
+</resources>

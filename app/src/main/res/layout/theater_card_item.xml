@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="7dp"
+    android:id="@+id/card_view"
+    app:cardPreventCornerOverlap="false"
+    app:cardElevation="6dp"
+    android:clipToPadding="false"
+    android:layout_margin="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/theater"
+            android:scaleType="fitXY"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/theater_image"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/theater_image"
+            android:textSize="17dp"
+            android:text="INOX Prozon"
+            android:gravity="left"
+            android:id="@+id/theater_name"
+            android:fontFamily="@font/segoeui_bold"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
+            android:layout_marginBottom="2dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="2dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/theater_image"
+            android:layout_alignParentRight="true"
+            android:text="Aurangabad"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/theater_city"
+            android:fontFamily="@font/segoeui"
+            android:layout_below="@+id/theater_name" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:id="@+id/movie_title"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:id="@+id/movie_image"/>
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
