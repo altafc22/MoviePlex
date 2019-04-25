@@ -52,7 +52,7 @@ public class ItemThreeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView =  inflater.inflate(R.layout.fragment_item_three, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_item_three, container, false);
 
         logoutButton = rootView.findViewById(R.id.logout_button);
         tv_id = rootView.findViewById(R.id.tv_id);
@@ -60,18 +60,24 @@ public class ItemThreeFragment extends Fragment {
         tv_email = rootView.findViewById(R.id.tv_email);
         profile_pic = rootView.findViewById(R.id.profile_pic);
 
-        MyApplication myApplication = (MyApplication)getActivity().getApplication();
+        MyApplication myApplication = (MyApplication) getActivity().getApplication();
         SharedPreferences sp = getApplicationContext().getSharedPreferences(myApplication.SP_NAME, 0);
 
-        id = sp.getString("id",null);
+        id = sp.getString("id", null);
         tv_id.setText(id);
-        name = sp.getString("name",null);
+        name = sp.getString("name", null);
         String new_name = name.replace(" ", "\n");
         tv_name.setText(new_name);
-        tv_email.setText(sp.getString("email",null));
+        tv_email.setText(sp.getString("email", null));
 
         Bitmap profile_image = loadProfileImage(id);
-        profile_pic.setImageBitmap(profile_image);
+        if (profile_image == null) {
+            Bitmap defaultImage = BitmapFactory.decodeResource(getResources(), R.drawable.ic_user_placeholder);
+            profile_pic.setImageBitmap(defaultImage);
+        } else
+        {
+            profile_pic.setImageBitmap(profile_image);
+        }
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

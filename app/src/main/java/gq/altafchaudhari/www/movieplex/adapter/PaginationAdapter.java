@@ -237,7 +237,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                            String new_gen =  getGenOneByOne(movieResults.get(pos).getGenereIds().get(i));
                            if(new_gen != "" && new_gen.length() > 0) {
                                genereation += "| " + new_gen+" ";
-
                            }
                            //else
                            //   genereation = "";

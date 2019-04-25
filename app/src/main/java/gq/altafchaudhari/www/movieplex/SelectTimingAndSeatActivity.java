@@ -182,7 +182,7 @@ public class SelectTimingAndSeatActivity extends AppCompatActivity implements Vi
                 view.setTag(STATUS_BOOKED);
                 view.setHint(String.valueOf(total_rows));
                 view.setText(count + "");
-                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
                 layout.addView(view);
                 seatViewList.add(view);
                 view.setOnClickListener(this);
@@ -199,7 +199,7 @@ public class SelectTimingAndSeatActivity extends AppCompatActivity implements Vi
                 view.setGravity(Gravity.CENTER);
                 view.setBackgroundResource(R.drawable.ic_seats_book);
                 view.setText(count + "");
-                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
                 view.setTextColor(Color.GRAY);
                 view.setTag(STATUS_AVAILABLE);
                 layout.addView(view);
@@ -218,7 +218,7 @@ public class SelectTimingAndSeatActivity extends AppCompatActivity implements Vi
                 view.setGravity(Gravity.CENTER);
                 view.setBackgroundResource(R.drawable.ic_seats_reserved);
                 view.setText(count + "");
-                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
                 view.setTextColor(Color.WHITE);
                 view.setTag(STATUS_RESERVED);
                 layout.addView(view);

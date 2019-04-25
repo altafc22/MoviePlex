@@ -3,7 +3,6 @@
 
     <string name="facebook_app_id">507371389791634</string>
     <string name="fb_login_protocol_scheme">fb507371389791634</string>
-    <string name="server_client_id">1037725400831-fjcflbdkpaba7khiho7749gvl42odqem.apps.googleusercontent.com</string>
 
     <string name="profile">Profile</string>
     <string name="settings">Settings</string>

@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/truiton_image"
                 android:layout_centerHorizontal="true"
-                android:text="Fragment 2"
+                android:text="Nearest Theaters"
                 android:id="@+id/title"
                 android:textSize="30sp"/>
 
