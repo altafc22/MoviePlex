@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -145,6 +146,8 @@ public class ItemOneFragment extends Fragment{
             releaseRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),4));
         }*/
 
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
@@ -179,14 +182,15 @@ public class ItemOneFragment extends Fragment{
 
             //Call<MoviesResponse> call = apiService.getNowPlayingMovies("IN",BuildConfig.THE_MOVIE_DB_API_TOKEN);
             //Call<MoviesResponse> call = apiService.getPopularMovies(BuildConfig.THE_MOVIE_DB_API_TOKEN);
-            Call<MoviesResponse> call = null;
+
             
             if(requestType.equals("newReleased")) {
-                call = apiService.getNowInTheaterMovies("IN",pre_formatted_date,
+                Call<MoviesResponse> newReleasedcall = null;
+                newReleasedcall = apiService.getNowInTheaterMovies("IN",pre_formatted_date,
                         current_formatted_date,
                         BuildConfig.THE_MOVIE_DB_API_TOKEN);
 
-                call.enqueue(new Callback<MoviesResponse>() {
+                newReleasedcall.enqueue(new Callback<MoviesResponse>() {
                     @Override
                     public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                         System.out.println("Response : "+response);
@@ -222,11 +226,12 @@ public class ItemOneFragment extends Fragment{
             }
             if(requestType.equals("upComing"))
             {
-                call = apiService.getUpcomingMovies("IN",
+                Call<MoviesResponse> upcomingCall = null;
+                upcomingCall = apiService.getUpcomingMovies("IN",
                         current_formatted_date,
                         BuildConfig.THE_MOVIE_DB_API_TOKEN);
 
-                call.enqueue(new Callback<MoviesResponse>() {
+                upcomingCall.enqueue(new Callback<MoviesResponse>() {
                     @Override
                     public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                         System.out.println("Response : "+response);

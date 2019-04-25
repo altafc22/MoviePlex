@@ -17,8 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".PaymentActivity"></activity>
-        <activity android:name=".ShowMoreMoviesActivity" />
+        <activity android:name=".PaymentActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ShowMoreMoviesActivity"
+            android:screenOrientation="portrait"  />
         <activity
             android:name=".SelectTimingAndSeatActivity"
             android:screenOrientation="portrait" />

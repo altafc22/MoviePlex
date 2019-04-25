@@ -63,9 +63,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
             vote_average.setText(String.valueOf(avg)+"%");
             total_vote.setText(getIntent().getExtras().getString("vote_count")+" votes");
             String gen = getIntent().getExtras().getString("genre");
-            //gen.replaceAll("null ", "");
-            //if(gen.equals(""))
-            //    gen = "Drama";
+            if(gen.length()>1)
+            {
+              gen = removePipe(gen);
+            }
             genre.setText(gen);
             overview.setText(getIntent().getExtras().getString("overview"));
 
@@ -189,5 +190,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    public String removePipe(String s){
+        return s.substring(2);
     }
 }
