@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="5dp"
-            tools:context=".ItemTwoFragment">
+            tools:context=".Fragments.TheaterListFragment">
 
             <ImageView
                 android:id="@+id/truiton_image"

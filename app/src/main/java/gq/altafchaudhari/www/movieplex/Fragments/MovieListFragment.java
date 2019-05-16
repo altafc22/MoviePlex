@@ -1,14 +1,11 @@
-package gq.altafchaudhari.www.movieplex;
+package gq.altafchaudhari.www.movieplex.Fragments;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,6 +22,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import gq.altafchaudhari.www.movieplex.BuildConfig;
+import gq.altafchaudhari.www.movieplex.R;
+import gq.altafchaudhari.www.movieplex.ShowMoreMoviesActivity;
 import gq.altafchaudhari.www.movieplex.adapter.MoviesAdapter;
 import gq.altafchaudhari.www.movieplex.api.Client;
 import gq.altafchaudhari.www.movieplex.api.Service;
@@ -34,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ItemOneFragment extends Fragment{
+public class MovieListFragment extends Fragment{
 
     private RecyclerView trailerRecyclerView,releaseRecyclerView,upcomingRecyclerView;
     private MoviesAdapter adapter;
@@ -49,8 +49,8 @@ public class ItemOneFragment extends Fragment{
 
     public static final String LOG_TAG = MoviesAdapter.class.getName();
 
-    public static ItemOneFragment newInstance() {
-        ItemOneFragment fragment = new ItemOneFragment();
+    public static MovieListFragment newInstance() {
+        MovieListFragment fragment = new MovieListFragment();
         return fragment;
     }
 
@@ -62,14 +62,14 @@ public class ItemOneFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView =  inflater.inflate(R.layout.fragment_item_one, container, false);
+        rootView =  inflater.inflate(R.layout.fragment_movie_list, container, false);
 
         initViews();
 
         showMoreReleasedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),ShowMoreMoviesActivity.class);
+                Intent intent = new Intent(getActivity(), ShowMoreMoviesActivity.class);
                 intent.putExtra("movie_type","released");
                 intent.putExtra("pages",total_released_pages);
                 startActivity(intent);

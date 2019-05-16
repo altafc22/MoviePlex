@@ -1,4 +1,4 @@
-package gq.altafchaudhari.www.movieplex;
+package gq.altafchaudhari.www.movieplex.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ItemTwoFragment extends Fragment {
-    public static ItemTwoFragment newInstance() {
-        ItemTwoFragment fragment = new ItemTwoFragment();
+import gq.altafchaudhari.www.movieplex.R;
+
+public class TheaterListFragment extends Fragment {
+    public static TheaterListFragment newInstance() {
+        TheaterListFragment fragment = new TheaterListFragment();
         return fragment;
     }
 
@@ -20,6 +22,6 @@ public class ItemTwoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_item_two, container, false);
+        return inflater.inflate(R.layout.fragment_theater_list, container, false);
     }
 }

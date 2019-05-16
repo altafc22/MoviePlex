@@ -15,6 +15,25 @@
         android:layout_centerInParent="true"
         android:background="@drawable/bg_vector">
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skip"
+            android:textSize="17sp"
+            android:textColor="@color/color_ui_text"
+            android:background="@drawable/button_skip_bg"
+            android:textAlignment="center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:onClick="skipSignIn"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/segoeui"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

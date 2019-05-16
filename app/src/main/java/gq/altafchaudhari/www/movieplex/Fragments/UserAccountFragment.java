@@ -1,46 +1,42 @@
-package gq.altafchaudhari.www.movieplex;
+package gq.altafchaudhari.www.movieplex.Fragments;
 
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
+import com.bestsoft32.tt_fancy_gif_dialog_lib.TTFancyGifDialog;
+import com.bestsoft32.tt_fancy_gif_dialog_lib.TTFancyGifDialogListener;
 import com.facebook.login.LoginManager;
-
-import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import gq.altafchaudhari.www.movieplex.LoginActivity;
+import gq.altafchaudhari.www.movieplex.MyApplication;
+import gq.altafchaudhari.www.movieplex.R;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-public class ItemThreeFragment extends Fragment {
+public class UserAccountFragment extends Fragment {
 
     Button logoutButton;
     TextView tv_name,tv_id,tv_email;
     CircleImageView profile_pic;
     String id,name,email;
-    public static ItemThreeFragment newInstance() {
-        ItemThreeFragment fragment = new ItemThreeFragment();
+    public static UserAccountFragment newInstance() {
+        UserAccountFragment fragment = new UserAccountFragment();
         return fragment;
     }
 
@@ -52,7 +48,7 @@ public class ItemThreeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_item_three, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_user_account, container, false);
 
         logoutButton = rootView.findViewById(R.id.logout_button);
         tv_id = rootView.findViewById(R.id.tv_id);
@@ -64,6 +60,7 @@ public class ItemThreeFragment extends Fragment {
         SharedPreferences sp = getApplicationContext().getSharedPreferences(myApplication.SP_NAME, 0);
 
         id = sp.getString("id", null);
+
         tv_id.setText(id);
         name = sp.getString("name", null);
         String new_name = name.replace(" ", "\n");
@@ -122,7 +119,7 @@ public class ItemThreeFragment extends Fragment {
         editor.clear();
         editor.commit();
 
-        Intent intent = new Intent(getActivity(),LoginActivity.class);
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

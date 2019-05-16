@@ -144,6 +144,26 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(new Intent(this,MainActivity.class));
         finish();
     }
+
+    public void skipSignIn(View v)
+    {
+        System.out.println("Saving Data to Preference with Skip");
+        SharedPreferences.Editor editor;
+        MyApplication myApplication = (MyApplication)getApplication();
+        String sp_name = myApplication.SP_NAME;
+        SharedPreferences sp = getApplicationContext().getSharedPreferences(sp_name, 0);
+        System.out.println("Shared Preference : "+sp_name);
+        editor = sp.edit();
+        editor.putBoolean("isLogin", true);
+        editor.putString("id", "skipped");
+        editor.putString("name", "skipped");
+        editor.putString("email", "skipped");
+        editor.putString("profile_pic", "skipped");
+        editor.commit();
+
+        gotoMainActivity();
+    }
+
     //private void saveDataInSp(String id,String name,String email)
     private void saveDataInSp(Profile profile,String email)
     {
