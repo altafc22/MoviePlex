@@ -19,6 +19,11 @@
     <string name="upcoming">Upcoming</string>
     <string name="movies">Movies</string>
     <string name="overview">Overview</string>
+    <string name="payment">Payment</string>
+    <string name="payment_failed_message">The transaction has failed due to one of the following reasons: • Your phone was unreachable due to lack of signal • Temporary problems with your Internet Connectivity\\n• Or Some Technical Reasons</string>
+    <string name="payment_failed_status">Payment Failed</string>
+    <string name="payment_success_status">Payment Successfully Received</string>
+    <string name="payment_success_message">• Click on next to Check your Ticket</string>
 
 
 </resources>

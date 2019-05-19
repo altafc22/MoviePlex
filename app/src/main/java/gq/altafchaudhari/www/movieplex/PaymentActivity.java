@@ -1,6 +1,7 @@
 package gq.altafchaudhari.www.movieplex;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,17 +12,22 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import me.gujun.android.taggroup.TagGroup;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 public class PaymentActivity extends AppCompatActivity {
 
 
-    TextView movie_name,theater_name,theater_city,tv_total_amt,currency_symbol,show_time,seats;
+    TextView movie_name,theater_name,theater_city,tv_total_amt,currency_symbol,show_time,tv_seats;
     ImageView movie_image;
     EditText et_name,et_mobile,et_email;
+
+    String theater,movie,city,time,seats,amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +43,34 @@ public class PaymentActivity extends AppCompatActivity {
         /*theater_name = findViewById(R.id.theater_name);
         theater_city = findViewById(R.id.theater_city);
         show_time = findViewById(R.id.show_time);
-        seats = findViewById(R.id.seats);*/
+        tv_seats = findViewById(R.id.seats);*/
         movie_image = findViewById(R.id.thumbnail);
         currency_symbol = findViewById(R.id.currency_symbol);
+
+
 
         Intent getExtra =  getIntent();
         movie_name.setText(getExtra.getExtras().getString("movie",null));
 
-        /*theater_name.setText(getExtra.getExtras().getString("theater",null));
-        theater_city.setText(getExtra.getExtras().getString("city",null));
-        show_time.setText(getExtra.getExtras().getString("time",null));
-        seats.setText(getExtra.getExtras().getString("seats",null));*/
+        theater = getExtra.getExtras().getString("theater",null);
+        city = getExtra.getExtras().getString("city",null);
+        movie = getExtra.getExtras().getString("movie",null);
+        time = getExtra.getExtras().getString("time",null);
+        seats = getExtra.getExtras().getString("seats",null);
+        amount = getExtra.getExtras().getString("amount",null);
+
+
+
+        MyApplication myApplication = (MyApplication) this.getApplication();
+        SharedPreferences sp = getApplicationContext().getSharedPreferences(myApplication.SP_NAME, 0);
+        String loginType = sp.getString("loginType",null);
+
+        if(loginType.equals("gmail")||loginType.equals("facebook"))
+        {
+         et_name.setText(sp.getString("name",null));
+         et_email.setText(sp.getString("email",null));
+        }
+
 
         tv_total_amt.setText(getExtra.getExtras().getString("amount",null));
         String poster_path = getExtra.getExtras().getString("movie_image",null);
@@ -75,16 +98,41 @@ public class PaymentActivity extends AppCompatActivity {
 
     public void gotoPayment(View v)
     {
-        String email = et_email.getText().toString();
+        String name = et_name.getText().toString();
         String mobile = et_mobile.getText().toString();
-        if(!isEmailValid(email))
+        String email = et_email.getText().toString();
+        String orderId = getOrderID();
+        amount = "1";
+
+        if(name.length()<1)
         {
-            et_email.setError("Enter Valid Email");
+            et_name.setError("Enter Name");
         }
-        if(!isValidMobile(mobile))
+        else if(!isValidMobile(mobile))
         {
             et_mobile.setError("Enter Valid Mobile Number");
         }
+        else if(!isEmailValid(email))
+        {
+            et_email.setError("Enter Valid Email");
+        }
+        else
+        {
+            Intent intent = new Intent(PaymentActivity.this, PaytmChecksum.class);
+            intent.putExtra("orderid", orderId);
+            intent.putExtra("custid", name);
+            intent.putExtra("amount", amount);
+            intent.putExtra("movie",movie);
+            intent.putExtra("theater",theater);
+            intent.putExtra("city",city);
+            intent.putExtra("time",time);
+            intent.putExtra("seats",seats);
+            intent.putExtra("mobile",mobile);
+            intent.putExtra("email",email);
+            startActivity(intent);
+            finish();
+        }
+
     }
 
     public static boolean isEmailValid(String email) {
@@ -112,5 +160,16 @@ public class PaymentActivity extends AppCompatActivity {
            return true;
         else
            return false;
+    }
+
+    private String getOrderID(){
+        String new_order = "";
+        Random rand = new Random();
+
+        long x = (long)(rand.nextDouble()*100000000000000L);
+
+        new_order = "52" + String.format("%014d", x);
+        System.out.println("New Order ID : "+new_order);
+        return new_order;
     }
 }
