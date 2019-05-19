@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import gq.altafchaudhari.www.movieplex.Interfaces.CardViewOnClickListener;
 import gq.altafchaudhari.www.movieplex.MyApplication;
 import gq.altafchaudhari.www.movieplex.R;
 import gq.altafchaudhari.www.movieplex.SelectTimingAndSeatActivity;
@@ -26,6 +27,8 @@ public class TheaterAdapter extends RecyclerView.Adapter<TheaterAdapter.MyViewHo
 
     private Context mContext ;
     private List<Theater> mData ;
+
+    private CardViewOnClickListener cardViewOnClickListener;
 
 
     public TheaterAdapter(Context mContext, List<Theater> mData) {
@@ -57,19 +60,15 @@ public class TheaterAdapter extends RecyclerView.Adapter<TheaterAdapter.MyViewHo
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(mContext, SelectTimingAndSeatActivity.class);
-                //passing data to the book activity
-                intent.putExtra("movie_name",mData.get(position).getMovie_name());
-                intent.putExtra("theater_name",mData.get(position).getTheater_name());
-                intent.putExtra("theater_city",mData.get(position).getTheater_city());
-                intent.putExtra("movie_image",mData.get(position).getMovie_image());
-                System.out.println("movie image url "+mData.get(position).getMovie_image());
-                mContext.startActivity(intent);
-
+                cardViewOnClickListener.onClick(v,position);
             }
         });
 
+    }
+
+    //Set method of OnItemClickListener object
+    public void setOnClickListener(CardViewOnClickListener cardViewOnClickListener){
+        this.cardViewOnClickListener = cardViewOnClickListener;
     }
 
     @Override
