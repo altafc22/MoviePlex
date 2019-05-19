@@ -115,6 +115,7 @@
                         android:maxLength="50"
                         android:textColor="@color/color_ui_text"
                         android:padding="6dp"
+                        android:id="@+id/et_name"
                         android:layout_marginBottom="10dp"/>
 
 
@@ -130,6 +131,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_gray"
                         android:maxLines="1"
+                        android:id="@+id/et_mobile"
                         android:maxLength="13"
                         android:inputType="phone"
                         android:hint="Mobile"
@@ -150,6 +152,7 @@
                         android:background="@drawable/edit_text_gray"
                         android:hint="Email"
                         android:maxLines="1"
+                        android:id="@+id/et_email"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/color_ui_text"
                         android:padding="6dp"
@@ -237,8 +240,21 @@
                                 android:layout_margin="1dp"
                                 android:id="@+id/movie_title"/>
 
+                            <me.gujun.android.taggroup.TagGroup
+                                android:id="@+id/tag_group"
+                                style="@style/TagGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:atg_borderColor="@color/black_gray"
+                                app:atg_textColor="@color/black_gray"
+                                atg_textSize="12sp"
+                                atg_horizontalSpacing="4dp"
+                                atg_horizontalPadding="10dp"
+                                app:atg_verticalPadding="3dp"
+                                atg_verticalSpacing="4dp"/>
 
-                            <LinearLayout
+
+                            <!--<LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
@@ -317,7 +333,7 @@
                                     android:id="@+id/seats"/>
 
 
-                            </LinearLayout>
+                            </LinearLayout>-->
 
                         </LinearLayout>
 
@@ -415,7 +431,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Next"
+                    android:text="Cancel"
                     android:fontFamily="@font/segoeui_bold"
                     android:textColor="@color/color_ui_text"
                     android:textSize="17sp" />

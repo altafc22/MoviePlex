@@ -71,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
                                 MyApplication myApplication = (MyApplication) MainActivity.this.getApplication();
                                 SharedPreferences sp = getApplicationContext().getSharedPreferences(myApplication.SP_NAME, 0);
-                                String id = sp.getString("id", null);
-                                if(id.equals("skipped"))
+                                //String id = sp.getString("id", null);
+                                String loginType = sp.getString("loginType", null);
+                                if(loginType!=null && loginType.equals("skipped"))
                                 {
                                     selectedFragment = MovieListFragment.newInstance();
                                     item.setIcon(R.drawable.ic_user_color);

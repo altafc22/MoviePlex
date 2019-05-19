@@ -16,9 +16,33 @@ https://api.themoviedb.org/3/discover/movie?api_key=YOUR_KEY_HERE&region=IN&with
 
 poster url : http://image.tmdb.org/t/p/w500
 backdrop url : http://image.tmdb.org/t/p/w780
-
+-----------------------------------------------------------------------------------------------------------------
 fb movieplex = ga0RGNYHvNM5d0SLGQfpQWAPGJ8=
 
+-----------------------------------------------------------------------------------------------------------------
+keytool -exportcert -alias movieplex_key -keystore C:\Users\Jarvis\.android\debug.keystore | C:\Users\Jarvis\Documents\OpenSSL\bin\openssl sha1 -binary | C:\openssl-0.9.8k_X64\bin\openssl base64
+
+-----------------------------------------------------------------------------------------------------------------
+keytool -list -v -keystore C:\Users\Jarvis\Documents\GitHub\movieplex.jks -alias movieplex_key
+ MD5:  D5:C3:0D:2D:F1:64:70:51:DF:42:D1:D6:9B:89:FA:54
+         SHA1: 21:A2:76:BA:75:1F:F5:CF:3E:79:42:97:F8:5F:C0:5D:AD:D2:E9:18
+         SHA256: 96:F3:D0:D5:CE:FA:EA:91:FC:EA:4E:42:D0:DF:6B:9D:4F:C5:29:1E:C0:0B:E3:63:3F:B0:E3:02:33:6A:DD:9C
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+-----------------------------------------------------------------------------------------------------------------
+C:\Users\Jarvis\.android\debug.keystore keytool -exportcert -keystore C:\Users\Jarvis\.android\debug.keystore -list -v
+-----------------------------------------------------------------------------------------------------------------
+
+client ID
+212012853892-pmkoioo598dj7iokcsj0coj691cop0dq.apps.googleusercontent.com 
+
+client secret
+jkIaeIljcnjGGV9z-KSpcit9 
+
+
+212012853892-e23tg41lglbogva9432mcn8e16bpivhu.apps.googleusercontent.com 
+212012853892-bhpph91vq9it4tctkm0sofsp6885v36v.apps.googleusercontent.com 
+------------------------------------------------------------------------------------------------------------------
 
 tv_user_name
 profile_pic

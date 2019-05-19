@@ -44,6 +44,8 @@ dependencies {
     implementation 'com.bestsoft32.tayyab:tt-fancy-gif-dialog:1.0.2'
 
 
+    implementation 'me.gujun.android.taggroup:library:1.4@aar'
+
     //lottie animation
     implementation 'com.airbnb.android:lottie:2.7.0'
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
