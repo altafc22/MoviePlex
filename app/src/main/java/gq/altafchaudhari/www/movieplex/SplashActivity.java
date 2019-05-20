@@ -14,12 +14,14 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.io.File;
 
 
 public class SplashActivity extends AppCompatActivity {
     private static int SPLASH_TIMEOUT = 3000;
+    private static final int STORAGE_PERMISSION_CODE = 1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,50 +38,67 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         },SPLASH_TIMEOUT);
-
-
-        boolean storage = storagePermission();
-
     }
-
-
-    private boolean storagePermission()
-    {
-        String TAG = "Permsission : ";
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
-                Log.v(TAG,"Permission is granted");
-                return true;
-            } else {
-
-                Log.v(TAG,"Permission is revoked");
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                return false;
-            }
-        }
-        else { //permission is automatically granted on sdk<23 upon installation
-            Log.v(TAG,"Permission is granted");
-            return true;
-        }
-    }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        String TAG = "Permsission : ";
-        if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
-            Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
-            //resume tasks needing this permission
-            //Define the path you want
-            File mFolder = new File(Environment.getExternalStorageDirectory(), "MoviePlex");
-            if (!mFolder.exists()) {
-                boolean b =  mFolder.mkdirs();
-
+        if(requestCode==STORAGE_PERMISSION_CODE && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+        {
+            //createAppDirectory();
+            createAppDirectory(getString(R.string.app_name));
+            createAppDirectory(getString(R.string.app_name)+"/Tickets");
+        }
+        else{
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
+            {
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
             }
         }
+
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+        if(!checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)){
+            ActivityCompat. requestPermissions(SplashActivity.this,permissions,STORAGE_PERMISSION_CODE);
+        }
+        else if(!checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE))
+        {
+            ActivityCompat. requestPermissions(SplashActivity.this,permissions,STORAGE_PERMISSION_CODE);
+        }
+    }
+
+    private boolean checkPermission(String permission)
+    {
+        //String permission = android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+        int res = SplashActivity.this.checkCallingOrSelfPermission(permission);
+        return (res == PackageManager.PERMISSION_GRANTED);
+    }
+
+
+    public void createAppDirectory(String dir){
+        String myfolder=Environment.getExternalStorageDirectory()+"/"+dir;
+        File f=new File(myfolder);
+        if(!f.exists()) {
+            if (!f.mkdir()) {
+                //Toast.makeText(this, myfolder + " can't be created.", Toast.LENGTH_SHORT).show();
+                System.out.println(myfolder + " can't be created.");
+            } else {
+                //Toast.makeText(this, myfolder + " can be created.", Toast.LENGTH_SHORT).show();
+                System.out.println(myfolder+" can be created.");
+            }
+        }
+         else {
+            //Toast.makeText(this, myfolder + " already exits.", Toast.LENGTH_SHORT).show();
+            System.out.println(myfolder + " already exits.");
+        }
+    }
+
+
 
     /**
      * Making notification bar and bottom bar transparent

@@ -9,23 +9,32 @@
     android:background="@color/colorWhite"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:background="@color/colorWhite"
-        android:orientation="horizontal"
-        android:id="@+id/action_bar_layout"
-        android:gravity="center">
+        android:id="@+id/action_bar_layout">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
+            android:layout_centerInParent="true"
             android:fontFamily="@font/segoeui"
             android:textColor="@color/color_ui_text"
             android:textSize="22sp"/>
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/iv_scan_qr"
+            android:onClick="scanQrCode"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_qr_code"
+            />
+
+    </RelativeLayout>
 
 
     <FrameLayout

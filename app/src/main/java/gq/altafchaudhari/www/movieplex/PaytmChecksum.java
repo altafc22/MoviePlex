@@ -19,11 +19,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import es.dmoral.toasty.Toasty;
+
 public class PaytmChecksum extends AppCompatActivity implements PaytmPaymentTransactionCallback {
 
     String custid="", orderId="", mid="",amt="";
 
-    String theater,movie,city,time,seats,mobile,email;
+    String theater,movie,city,time,seats,mobile,email,poster_path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class PaytmChecksum extends AppCompatActivity implements PaytmPaymentTran
         seats = intent.getExtras().getString("seats",null);
         mobile = intent.getExtras().getString("mobile",null);
         email = intent.getExtras().getString("email",null);
+        poster_path = intent.getExtras().getString("movie_image",null);
 
         mid = "TUUcxM47514943318406";
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
@@ -54,7 +57,8 @@ public class PaytmChecksum extends AppCompatActivity implements PaytmPaymentTran
         private ProgressDialog dialog = new ProgressDialog(PaytmChecksum.this);
 
 
-        String url ="http://192.168.43.230/paytm/generateChecksum.php";//TODO your server's url here (www.xyz/checksumGenerate.php)
+        String url ="http://spbiyani.com/.cgi/generateChecksum.php";//TODO your server's url here (www.xyz/checksumGenerate.php)
+        //String url ="http://192.168.43.230/paytm/generateChecksum.php";//TODO your server's url here (www.xyz/checksumGenerate.php)
         String varifyurl = "https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp";
         String CHECKSUMHASH ="";
 
@@ -121,8 +125,6 @@ public class PaytmChecksum extends AppCompatActivity implements PaytmPaymentTran
 
             Service.startPaymentTransaction(PaytmChecksum.this, true, true,
                     PaytmChecksum.this  );
-
-
         }
 
     }
@@ -130,7 +132,8 @@ public class PaytmChecksum extends AppCompatActivity implements PaytmPaymentTran
 
     @Override
     public void onTransactionResponse(Bundle bundle) {
-        Toast.makeText(this, "Payment successful", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Payment successful", Toast.LENGTH_LONG).show();
+        Toasty.success(this,"Payment Successful",Toasty.LENGTH_LONG,true).show();
         Log.e("checksum ", " respon true " + bundle.toString());
 
         custid = custid.replaceAll("_", " ").toUpperCase();
@@ -147,6 +150,7 @@ public class PaytmChecksum extends AppCompatActivity implements PaytmPaymentTran
         intent.putExtra("seats",seats);
         intent.putExtra("mobile",mobile);
         intent.putExtra("email",email);
+        intent.putExtra("movie_image",poster_path);
         startActivity(intent);
         finish();
 

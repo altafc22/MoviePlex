@@ -25,6 +25,7 @@ import by.anatoldeveloper.hallscheme.hall.HallScheme;
 import by.anatoldeveloper.hallscheme.hall.Seat;
 import by.anatoldeveloper.hallscheme.hall.SeatListener;
 import by.anatoldeveloper.hallscheme.view.ZoomableImageView;
+import es.dmoral.toasty.Toasty;
 
 public class SelectTimingAndSeatActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -239,37 +240,39 @@ public class SelectTimingAndSeatActivity extends AppCompatActivity implements Vi
     @Override
     public void onClick(View view) {
 
-        if ((int) view.getTag() == STATUS_AVAILABLE) {
+          if ((int) view.getTag() == STATUS_AVAILABLE) {
 
-            TextView tv = (TextView)  view;
-            int row_number = Integer.parseInt((String) tv.getHint());
+                TextView tv = (TextView)  view;
+                int row_number = Integer.parseInt((String) tv.getHint());
 
-            if (selectedIds.contains(view.getId() + ",")) {
-                selectedIds = selectedIds.replace(+view.getId() + ",", "");
-                view.setBackgroundResource(R.drawable.ic_seats_book);
-                total_amount -= get_fare(row_number,base_fare);
-                total_seat_booking--;
-                tv_total_amt.setText(String.valueOf(total_amount));
-                System.out.println("Total Seats: "+total_seat_booking+"\nTotal Amount: "+total_amount);
+                if (selectedIds.contains(view.getId() + ",")) {
+                    selectedIds = selectedIds.replace(+view.getId() + ",", "");
+                    view.setBackgroundResource(R.drawable.ic_seats_book);
+                    total_amount -= get_fare(row_number,base_fare);
+                    total_seat_booking--;
+                    tv_total_amt.setText(String.valueOf(total_amount));
+                    System.out.println("Total Seats: "+total_seat_booking+"\nTotal Amount: "+total_amount);
+                }
+                else {
+
+                    if(total_seat_booking<5) {
+                        selectedIds = selectedIds + view.getId() + ",";
+                        view.setBackgroundResource(R.drawable.ic_seats_selected);
+                        total_amount += get_fare(row_number, base_fare);
+                        total_seat_booking++;
+                        tv_total_amt.setText(String.valueOf(total_amount));
+                        System.out.println("Total Seats: " + total_seat_booking + "\nTotal Amount: " + total_amount);
+                    }
+                    else
+                        Toasty.warning(SelectTimingAndSeatActivity.this,"You can select 5 seats only",Toasty.LENGTH_SHORT,true).show();
+                }
+                System.out.println("Total Booking "+total_seat_booking);
+            } else if ((int) view.getTag() == STATUS_BOOKED) {
+                Toast.makeText(this, "Seat " + view.getId() + " is Booked", Toast.LENGTH_SHORT).show();
+            } else if ((int) view.getTag() == STATUS_RESERVED) {
+                Toast.makeText(this, "Seat " + view.getId() + " is Reserved", Toast.LENGTH_SHORT).show();
             }
-            else {
-                selectedIds = selectedIds + view.getId() + ",";
-                view.setBackgroundResource(R.drawable.ic_seats_selected);
-                total_amount += get_fare(row_number,base_fare);
-                total_seat_booking++;
-                tv_total_amt.setText(String.valueOf(total_amount));
-                System.out.println("Total Seats: "+total_seat_booking+"\nTotal Amount: "+total_amount);
-            }
-            System.out.println("Total Booking "+total_seat_booking);
-        } else if ((int) view.getTag() == STATUS_BOOKED) {
-            Toast.makeText(this, "Seat " + view.getId() + " is Booked", Toast.LENGTH_SHORT).show();
-        } else if ((int) view.getTag() == STATUS_RESERVED) {
-            Toast.makeText(this, "Seat " + view.getId() + " is Reserved", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
-
+       }
 
     private int get_fare(int selected_row,int theater_fare) {
 
@@ -319,11 +322,13 @@ public class SelectTimingAndSeatActivity extends AppCompatActivity implements Vi
                 intent.putExtra("movie_image", poster_path);
                 startActivity(intent);
             } else {
-                Toast.makeText(SelectTimingAndSeatActivity.this, "Please Select Seats", Toast.LENGTH_LONG).show();
+                Toasty.warning(SelectTimingAndSeatActivity.this, "Please Select Seats", Toasty.LENGTH_SHORT,true).show();
+                //Toast.makeText(SelectTimingAndSeatActivity.this, "Please Select Seats", Toast.LENGTH_LONG).show();
             }
         }catch (StringIndexOutOfBoundsException ex)
         {
-            Toast.makeText(SelectTimingAndSeatActivity.this, "Please Select Seats", Toast.LENGTH_LONG).show();
+            Toasty.warning(SelectTimingAndSeatActivity.this, "Please Select Seats", Toasty.LENGTH_SHORT,true).show();
+            //Toast.makeText(SelectTimingAndSeatActivity.this, "Please Select Seats", Toast.LENGTH_LONG).show();
         }
     }
 

@@ -27,7 +27,7 @@ public class PaymentActivity extends AppCompatActivity {
     ImageView movie_image;
     EditText et_name,et_mobile,et_email;
 
-    String theater,movie,city,time,seats,amount;
+    String theater,movie,city,time,seats,amount,poster_path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class PaymentActivity extends AppCompatActivity {
         time = getExtra.getExtras().getString("time",null);
         seats = getExtra.getExtras().getString("seats",null);
         amount = getExtra.getExtras().getString("amount",null);
+        poster_path = getExtra.getExtras().getString("movie_image",null);
 
 
 
@@ -102,7 +103,7 @@ public class PaymentActivity extends AppCompatActivity {
         String mobile = et_mobile.getText().toString();
         String email = et_email.getText().toString();
         String orderId = getOrderID();
-        amount = "1";
+        //amount = "1";
 
         if(name.length()<1)
         {
@@ -129,6 +130,7 @@ public class PaymentActivity extends AppCompatActivity {
             intent.putExtra("seats",seats);
             intent.putExtra("mobile",mobile);
             intent.putExtra("email",email);
+            intent.putExtra("movie_image", poster_path);
             startActivity(intent);
             finish();
         }

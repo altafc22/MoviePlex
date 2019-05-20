@@ -24,12 +24,12 @@ import java.io.IOException;
 
 import es.dmoral.toasty.Toasty;
 
-public class GenerateTicketActivity extends AppCompatActivity {
+public class ScannedTicket extends AppCompatActivity {
 
     String custid,orderId,amt,theater,movie,city,time,seats,mobile,email,poster_path;
     ImageView img_qrcode;
     TextView tv_movie_title,tv_order_id,tv_seat,tv_time,tv_theater,tv_name,tv_total_amt;
-    String text2Qr;
+    String text2Qr,raw_ticket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,6 @@ public class GenerateTicketActivity extends AppCompatActivity {
         tv_theater.setText(theater);
         tv_name.setText(custid);
         tv_total_amt.setText(amt);
-
-
         String text2Qr = orderId+"|"+custid+"|"+amt+"|"+movie+"|"+theater+"|"+time+"|"+seats+"|"+poster_path;
         generateQR(text2Qr);
     }
@@ -63,18 +61,18 @@ public class GenerateTicketActivity extends AppCompatActivity {
     private void getIntentData()
     {
         Intent intent = getIntent();
-        orderId = intent.getExtras().getString("orderid");
-        custid = intent.getExtras().getString("custid");
-        amt = intent.getExtras().getString("amount");
+        raw_ticket = intent.getExtras().getString("ticket_data");
+        String[] separated_data = raw_ticket.split("|");
 
-        theater = intent.getExtras().getString("theater",null);
-        city = intent.getExtras().getString("city",null);
-        movie = intent.getExtras().getString("movie",null);
-        time = intent.getExtras().getString("time",null);
-        seats = intent.getExtras().getString("seats",null);
-        mobile = intent.getExtras().getString("mobile",null);
-        email = intent.getExtras().getString("email",null);
-        poster_path = intent.getExtras().getString("movie_image",null);
+        //orderId+"|"+custid+"|"+amt+"|"+movie+"|"+theater+"|"+time+"|"+seats+"|"+poster_path;
+        orderId = separated_data[0];
+        custid = separated_data[1];
+        amt = separated_data[2];
+        movie = separated_data[3];
+        theater = separated_data[4];
+        time = separated_data[5];
+        seats = separated_data[6];
+        poster_path = separated_data[7];
     }
 
     private void generateQR(String text)
@@ -102,13 +100,13 @@ public class GenerateTicketActivity extends AppCompatActivity {
     }
 
     public void gotoMainActivity(View v){
-     startActivity(new Intent(GenerateTicketActivity.this,MainActivity.class));
-     finish();
+        startActivity(new Intent(ScannedTicket.this,MainActivity.class));
+        finish();
     }
 
     public void saveTicket(View v){
         saveToSdCard(getTicketBitmap());
-        startActivity(new Intent(GenerateTicketActivity.this,MainActivity.class));
+        startActivity(new Intent(ScannedTicket.this,MainActivity.class));
         finish();
 
     }
@@ -118,7 +116,7 @@ public class GenerateTicketActivity extends AppCompatActivity {
         FrameLayout ticketFrame;
         Bitmap bitmap;
         ticketFrame=(FrameLayout) findViewById(R.id.ticketFrame);
-        layout_to_image=new Layout_to_Image(GenerateTicketActivity.this,ticketFrame);
+        layout_to_image=new Layout_to_Image(ScannedTicket.this,ticketFrame);
         bitmap=layout_to_image.convert_layout();
 
         return bitmap;
@@ -131,13 +129,13 @@ public class GenerateTicketActivity extends AppCompatActivity {
             FileOutputStream output =   new FileOutputStream(Environment.getExternalStorageDirectory() + "/"+getString(R.string.app_name)+"/Tickets/"+orderId+".png");
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
             output.close();
-            Toasty.success(GenerateTicketActivity.this,"Ticket Saved in Gallery",Toasty.LENGTH_LONG,true).show();
+            Toasty.success(ScannedTicket.this,"Ticket Saved in Gallery",Toasty.LENGTH_LONG,true).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Toasty.error(GenerateTicketActivity.this,"Ticket Not Saved",Toasty.LENGTH_LONG,true).show();
+            Toasty.error(ScannedTicket.this,"Ticket Not Saved",Toasty.LENGTH_LONG,true).show();
         } catch (IOException e) {
             e.printStackTrace();
-            Toasty.error(GenerateTicketActivity.this,"Ticket Not Saved",Toasty.LENGTH_LONG,true).show();
+            Toasty.error(ScannedTicket.this,"Ticket Not Saved",Toasty.LENGTH_LONG,true).show();
         }
     }
 

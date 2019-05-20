@@ -39,8 +39,6 @@ public class SelectTheaterActivity extends AppCompatActivity {
         movie_name = getExtra.getExtras().getString("movie_name",null);
         movie_image_url = getExtra.getExtras().getString("movie_image",null);
 
-
-
         recyclerView = findViewById(R.id.recycler_view);
         theater = new ArrayList<>();
         myAdapter = new TheaterAdapter(this, theater);

@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -20,9 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".GenerateTicketActivity"
+        <activity android:name=".ScannedTicket"></activity>
+        <activity
+            android:name=".GenerateTicketActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".PostPaymentActivity"
+        <activity
+            android:name=".PostPaymentActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PaymentActivity"
@@ -54,6 +56,11 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.RUN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
