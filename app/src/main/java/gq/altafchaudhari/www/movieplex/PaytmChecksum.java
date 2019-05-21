@@ -186,11 +186,13 @@ public class PaytmChecksum extends AppCompatActivity implements PaytmPaymentTran
     @Override
     public void onBackPressedCancelTransaction() {
         Log.e("checksum ", " cancel call back respon  " );
+        finish();
     }
 
     @Override
     public void onTransactionCancel(String s, Bundle bundle) {
         Log.e("checksum ", "  transaction cancel " );
+        finish();
     }
 
 

@@ -47,210 +47,71 @@
             android:background="@drawable/rounded_chip"
             android:id="@+id/ticketFrame">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/color_ui_subtext"
-                    android:text="Movie"/>
-
-                <TextView
-                    android:id="@+id/tv_movie_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/segoeui_bold"
-                    android:maxLines="1"
-                    android:textAllCaps="true"
-                    android:text="Iron Man 3 "
-                    android:layout_marginBottom="5dp"
-                    android:textColor="@color/color_ui_text"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/color_ui_subtext"
-                    android:text="Order ID"/>
-
-                <TextView
-                    android:id="@+id/tv_order_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/segoeui_bold"
-                    android:maxLines="1"
-                    android:textAllCaps="true"
-                    android:text="985742136521451"
-                    android:layout_marginBottom="20dp"
-                    android:textColor="@color/color_ui_text"
-                    android:textSize="20sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/color_ui_text"/>
-
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/img_qrcode"
-                    android:src="@drawable/ic_qr_code"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/color_ui_text"/>
-
+                android:layout_height="match_parent">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:gravity="center"
                     android:orientation="vertical">
 
 
-                    <RelativeLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:textColor="@color/color_ui_subtext"
+                        android:text="Movie"/>
 
-                        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                            xmlns:app="http://schemas.android.com/apk/res-auto"
-                            android:id="@+id/small_card"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:background="@drawable/small_card_ui"
-                            android:orientation="vertical"
-                            app:cardCornerRadius="@dimen/small_card_radius"
-                            app:cardPreventCornerOverlap="false">
+                    <TextView
+                        android:id="@+id/tv_movie_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/segoeui_bold"
+                        android:maxLines="1"
+                        android:textAllCaps="true"
+                        android:text="Iron Man 3 "
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/color_ui_text"
+                        android:textSize="20sp" />
 
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_ui_subtext"
+                        android:text="Order ID"/>
 
-                                <ImageView
-                                    android:id="@+id/thumbnail"
-                                    android:layout_width="80dp"
-                                    android:layout_height="110dp"
-                                    android:background="?attr/selectableItemBackgroundBorderless"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/iron_man_three" />
-                            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tv_order_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/segoeui_bold"
+                        android:maxLines="1"
+                        android:textAllCaps="true"
+                        android:text="985742136521451"
+                        android:layout_marginBottom="20dp"
+                        android:textColor="@color/color_ui_text"
+                        android:textSize="20sp" />
 
-                        </android.support.v7.widget.CardView>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/color_ui_text"/>
 
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_toRightOf="@+id/small_card"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="5dp">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginBottom="5dp"
-                                android:weightSum="2">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_weight="1">
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/color_ui_subtext"
-                                        android:text="Time"/>
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/color_ui_text"
-                                        android:text="12:00 PM"
-                                        android:id="@+id/tv_time"
-                                        android:textStyle="bold"
-                                        android:textSize="18sp"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_weight="1">
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/color_ui_subtext"
-                                        android:text="Seats"/>
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/color_ui_text"
-                                        android:text="201,322,400,005"
-                                        android:textStyle="bold"
-                                        android:id="@+id/tv_seat"
-                                        android:textSize="18sp"/>
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/color_ui_subtext"
-                                    android:text="Theater"/>
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/color_ui_text"
-                                    android:text="INOX Reliance Aurangabad"
-                                    android:textStyle="bold"
-                                    android:id="@+id/tv_theater"
-                                    android:textSize="18sp"/>
-
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
+                    <ImageView
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_qrcode"
+                        android:src="@drawable/ic_qr_code"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -260,84 +121,244 @@
                         android:background="@color/color_ui_text"/>
 
 
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
                         android:orientation="vertical">
 
 
-                        <TextView
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/color_ui_subtext"
-                            android:text="Name"/>
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
 
-                        <TextView
+                            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/small_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:background="@drawable/small_card_ui"
+                                android:orientation="vertical"
+                                app:cardCornerRadius="@dimen/small_card_radius"
+                                app:cardPreventCornerOverlap="false">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/thumbnail"
+                                        android:layout_width="80dp"
+                                        android:layout_height="110dp"
+                                        android:background="?attr/selectableItemBackgroundBorderless"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/iron_man_three" />
+                                </RelativeLayout>
+
+                            </android.support.v7.widget.CardView>
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_toRightOf="@+id/small_card"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="5dp">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginBottom="5dp"
+                                    android:weightSum="2">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/color_ui_subtext"
+                                            android:text="Time"/>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/color_ui_text"
+                                            android:text="12:00 PM"
+                                            android:id="@+id/tv_time"
+                                            android:textStyle="bold"
+                                            android:textSize="18sp"/>
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/color_ui_subtext"
+                                            android:text="Seats"/>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/color_ui_text"
+                                            android:text="201,322,400,005"
+                                            android:textStyle="bold"
+                                            android:id="@+id/tv_seat"
+                                            android:textSize="18sp"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/color_ui_subtext"
+                                        android:text="Theater"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/color_ui_text"
+                                        android:text="INOX Reliance Aurangabad"
+                                        android:textStyle="bold"
+                                        android:id="@+id/tv_theater"
+                                        android:textSize="18sp"/>
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <View
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/color_ui_text"
-                            android:text="Altaf Chaudhari"
-                            android:textStyle="bold"
-                            android:textAllCaps="true"
-                            android:id="@+id/tv_name"
-                            android:textSize="22sp"/>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:weightSum="10">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:fontFamily="@font/segoeui"
-                            android:layout_centerVertical="true"
-                            android:layout_toLeftOf="@+id/amount_layout"
-                            android:text="Total Amount Payable"
-                            android:textColor="@color/color_ui_text"
-                            android:textSize="16sp" />
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/color_ui_text"/>
 
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:id="@+id/amount_layout"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
+
 
                             <TextView
-                                android:id="@+id/currency_symbol"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/segoeui_bold"
-                                android:text=" ₹. "
-                                android:textColor="@color/color_ui_text"
-                                android:textSize="25sp" />
+                                android:textColor="@color/color_ui_subtext"
+                                android:text="Name"/>
 
                             <TextView
-                                android:id="@+id/tv_total_amt"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/segoeui_bold"
-                                android:text="0.0"
-                                android:layout_gravity=""
                                 android:textColor="@color/color_ui_text"
-                                android:textSize="25sp" />
+                                android:text="Altaf Chaudhari"
+                                android:textStyle="bold"
+                                android:textAllCaps="true"
+                                android:id="@+id/tv_name"
+                                android:textSize="22sp"/>
+
+
                         </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_toLeftOf="@+id/payment_layout"
+                                android:src="@drawable/paid"/>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:id="@+id/payment_layout"
+                                android:layout_alignParentRight="true"
+                                android:gravity="end"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:fontFamily="@font/segoeui"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/amount_layout"
+                                    android:text="Total Amount Paid"
+                                    android:textColor="@color/color_ui_text"
+                                    android:textSize="16sp" />
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:id="@+id/amount_layout"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/currency_symbol"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/segoeui_bold"
+                                        android:text=" ₹. "
+                                        android:textColor="@color/color_ui_text"
+                                        android:textSize="25sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_total_amt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/segoeui_bold"
+                                        android:text="0.0"
+                                        android:layout_gravity=""
+                                        android:textColor="@color/color_ui_text"
+                                        android:textSize="25sp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+
+            </ScrollView>
 
         </FrameLayout>
 

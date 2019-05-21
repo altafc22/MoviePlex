@@ -53,7 +53,7 @@ public class ScannedTicket extends AppCompatActivity {
         tv_theater.setText(theater);
         tv_name.setText(custid);
         tv_total_amt.setText(amt);
-        String text2Qr = orderId+"|"+custid+"|"+amt+"|"+movie+"|"+theater+"|"+time+"|"+seats+"|"+poster_path;
+        String text2Qr = orderId+"; "+custid+"; "+amt+"; "+movie+"; "+theater+"; "+time+"; "+seats+"; "+poster_path;
         generateQR(text2Qr);
     }
 
@@ -62,17 +62,22 @@ public class ScannedTicket extends AppCompatActivity {
     {
         Intent intent = getIntent();
         raw_ticket = intent.getExtras().getString("ticket_data");
-        String[] separated_data = raw_ticket.split("|");
+        String separated_data[] = raw_ticket.split(";");
 
+        System.out.println("Raw data"+raw_ticket);
+        System.out.println("dassaddsaad "+separated_data);
+
+        //5200308241755216|ALTAF CHOUDHARI|130.0|Avengers: Endgame|INOX Tapadia|12:00 PM|1|null
         //orderId+"|"+custid+"|"+amt+"|"+movie+"|"+theater+"|"+time+"|"+seats+"|"+poster_path;
-        orderId = separated_data[0];
-        custid = separated_data[1];
-        amt = separated_data[2];
-        movie = separated_data[3];
-        theater = separated_data[4];
-        time = separated_data[5];
-        seats = separated_data[6];
-        poster_path = separated_data[7];
+
+        orderId = separated_data[0].trim();
+        custid = separated_data[1].trim();
+        amt = separated_data[2].trim();
+        movie = separated_data[3].trim();
+        theater = separated_data[4].trim();
+        time = separated_data[5].trim();
+        seats = separated_data[6].trim();
+        poster_path = separated_data[7].trim();
     }
 
     private void generateQR(String text)

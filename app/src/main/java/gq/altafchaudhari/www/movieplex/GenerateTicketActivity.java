@@ -55,7 +55,7 @@ public class GenerateTicketActivity extends AppCompatActivity {
         tv_total_amt.setText(amt);
 
 
-        String text2Qr = orderId+"|"+custid+"|"+amt+"|"+movie+"|"+theater+"|"+time+"|"+seats+"|"+poster_path;
+        String text2Qr = orderId+"; "+custid+"; "+amt+"; "+movie+"; "+theater+"; "+time+"; "+seats+"; "+poster_path;
         generateQR(text2Qr);
     }
 
