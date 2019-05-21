@@ -19,8 +19,9 @@ Prerequisites: Internet Conntectivity to load data from API
 4. Select Theater (added two dummy theater using TheaterAdapter)
 5. Profile Page (profile data from facebook)
 
-Modules Remaining 
-1. Seat Selection And Show Timing Selection Activity
-2. Movie Ticket Generation with QR Code
-3. Payment Activity (Payment Gateway)  
-4. Also Show Trailers at the top of Movie Fragment 
+-Skip Login Added
+-Google Sign in Added
+-Minor bugs removed
+-QR Code Generated
+-QR Code Reader Added
+-Payment Gatewaty Added
